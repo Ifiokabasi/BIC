@@ -35,8 +35,8 @@ type Milestone = {
 };
 
 // ── useInView ───────────────────────────────────────────────────────────────
-function useInView(threshold = 0.08): [React.RefObject<HTMLDivElement>, boolean] {
-  const ref = useRef<HTMLDivElement>(null);
+function useInView(threshold = 0.08): [React.RefObject<HTMLDivElement | null>, boolean] {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const el = ref.current;
