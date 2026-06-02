@@ -1,14 +1,42 @@
 "use client";
 
-// app/about/page.tsx  (or pages/about.tsx for Pages Router)
+// app/about/page.tsx (or pages/about.tsx for Pages Router)
 // Place this file at: app/about/page.tsx
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, ReactNode } from "react";
 import Link from "next/link";
 
+// ── Types ───────────────────────────────────────────────────────────────
+
+type Stat = {
+  value: string | number;
+  label: string;
+  accent: string;
+};
+
+type Value = {
+  icon: ReactNode;
+  title: string;
+  body: string;
+  accent: string;
+};
+
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  accent: string;
+};
+
+type Milestone = {
+  year: string | number;
+  title: string;
+  body: string;
+};
+
 // ── useInView ───────────────────────────────────────────────────────────────
-function useInView(threshold = 0.08) {
-  const ref = useRef(null);
+function useInView(threshold = 0.08): [React.RefObject<HTMLDivElement>, boolean] {
+  const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const el = ref.current;
@@ -19,19 +47,19 @@ function useInView(threshold = 0.08) {
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [threshold]);
   return [ref, inView];
 }
 
 // ── Data ────────────────────────────────────────────────────────────────────
-const stats = [
+const stats: Stat[] = [
   { value: "$4.2B", label: "Assets Under Management", accent: "#C8F135" },
   { value: "15+",   label: "Years in Capital Markets", accent: "#5B8EFF" },
   { value: "67",    label: "Portfolio Companies",      accent: "#FF6B6B" },
   { value: "3",     label: "Global Offices",           accent: "#2ECDA7" },
 ];
 
-const values = [
+const values: Value[] = [
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -100,7 +128,7 @@ const values = [
   },
 ];
 
-const team = [
+const team: TeamMember[] = [
   {
     name: "Adebayo Okonkwo",
     role: "Founder & CEO",
@@ -139,7 +167,7 @@ const team = [
   },
 ];
 
-const milestones = [
+const milestones: Milestone[] = [
   { year: "2009", title: "Founded in Lagos", body: "BIC established with a mandate to provide institutional-grade investment access to African HNWIs." },
   { year: "2012", title: "London Office Opens", body: "Expanded to Canary Wharf to serve the diaspora investment market and access European LP capital." },
   { year: "2015", title: "$500M AUM Milestone", body: "Crossed half a billion in assets under management, launching the flagship BIC Alpha Fund." },
@@ -150,7 +178,12 @@ const milestones = [
 
 // ── Section components ──────────────────────────────────────────────────────
 
-function StatCard({ stat, index }) {
+interface StatCardProps {
+  stat: Stat;
+  index: number;
+}
+
+function StatCard({ stat, index }: StatCardProps) {
   const [ref, inView] = useInView();
   return (
     <div
@@ -169,7 +202,12 @@ function StatCard({ stat, index }) {
   );
 }
 
-function ValueCard({ v, index }) {
+interface ValueCardProps {
+  v: Value;
+  index: number;
+}
+
+function ValueCard({ v, index }: ValueCardProps) {
   const [ref, inView] = useInView();
   const [hovered, setHovered] = useState(false);
   return (
@@ -195,7 +233,12 @@ function ValueCard({ v, index }) {
   );
 }
 
-function TeamCard({ member, index }) {
+interface TeamCardProps {
+  member: TeamMember;
+  index: number;
+}
+
+function TeamCard({ member, index }: TeamCardProps) {
   const [ref, inView] = useInView();
   const [hovered, setHovered] = useState(false);
   // Initials avatar
@@ -225,7 +268,13 @@ function TeamCard({ member, index }) {
   );
 }
 
-function MilestoneItem({ m, index, total }) {
+interface MilestoneItemProps {
+  m: Milestone;
+  index: number;
+  total: number;
+}
+
+function MilestoneItem({ m, index }: MilestoneItemProps) {
   const [ref, inView] = useInView();
   const isLeft = index % 2 === 0;
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import Link from "next/link";
 
 
 
@@ -559,12 +560,25 @@ export default function HeroSlideshow() {
             BIC
             <span style={{ background: slide.accent }} />
           </div>
+        
           <ul className="nav-links">
-            {["About Us", "Services", "Blog", "Contact Us"].map((l) => (
+
+            {/* {["About Us", "Services", "Blog", "Contact Us"].map((l) => (
               <li key={l}>
                 <a href="#">{l}</a>
               </li>
+            ))} */}
+            
+            {["About Us", "Services", "Blog", "Contact Us"].map((l) => (
+              <li key={l}>
+                <Link href={l === "About Us" ? "/about" : l === "Blog" ? "/blog" : l === "Contact Us" ? "/contact" : "/"}>
+                  {l}
+                </Link>
+              </li>
             ))}
+
+
+
           </ul>
           <button className="nav-action">Sign in →</button>
         </nav>
