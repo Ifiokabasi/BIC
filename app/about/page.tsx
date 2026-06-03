@@ -52,87 +52,109 @@ function useInView(threshold = 0.08): [React.RefObject<HTMLDivElement | null>, b
 }
 
 // ── Data ────────────────────────────────────────────────────────────────────
-const stats: Stat[] = [
-  { value: "$4.2B", label: "Assets Under Management", accent: "#C8F135" },
-  { value: "15+",   label: "Years in Capital Markets", accent: "#5B8EFF" },
-  { value: "67",    label: "Portfolio Companies",      accent: "#FF6B6B" },
-  { value: "3",     label: "Global Offices",           accent: "#2ECDA7" },
+const stats = [
+  {
+    value: "49+",
+    label: "Years of Impact",
+    description:
+      "Nearly five decades of driving investment and economic development across Bauchi State.",
+  },
+  {
+    value: "₦500M",
+    label: "Growth Capital",
+    description:
+      "A strengthened capital base supporting strategic investments and development projects.",
+  },
+  {
+    value: "1",
+    label: "Investment Gateway",
+    description:
+      "Providing a one-stop platform for investors seeking opportunities in Bauchi State.",
+  },
+  {
+    value: "∞",
+    label: "Opportunities",
+    description:
+      "Unlocking potential across agriculture, infrastructure, mining, tourism, and commerce.",
+  },
 ];
 
 const values: Value[] = [
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
-    title: "Integrity First",
-    body: "Every decision we make is guided by transparency, accountability, and the fiduciary duty we owe our investors. We never compromise on trust.",
+    title: "Integrity & Public Trust",
+    body: "We operate with transparency, accountability, and professionalism in managing public investment interests on behalf of Bauchi State Government.",
     accent: "#C8F135",
   },
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="2" y1="12" x2="22" y2="12"/>
-        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20" />
+        <path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20z" />
       </svg>
     ),
-    title: "Global Perspective",
-    body: "With offices in Abuja, London, and Dubai, we bring cross-border intelligence and local market expertise to every investment thesis.",
+    title: "Economic Development Focus",
+    body: "We are committed to stimulating economic growth through trade, commerce, industrialization, and strategic investment across Bauchi State.",
     accent: "#5B8EFF",
   },
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
-        <polyline points="16 7 22 7 22 13"/>
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+        <polyline points="16 7 22 7 22 13" />
       </svg>
     ),
-    title: "Performance Driven",
-    body: "We are relentlessly focused on delivering risk-adjusted returns that outperform benchmarks — through disciplined research and bold conviction.",
+    title: "Sustainable Growth",
+    body: "We prioritize long-term, sustainable expansion of investment portfolios to strengthen the state's financial capacity and development impact.",
     accent: "#FF6B6B",
   },
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-        <circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-        <path d="M16 3.13a4 4 0 010 7.75"/>
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
       </svg>
     ),
-    title: "People at Centre",
-    body: "Behind every fund is a family, a founder, or a future being built. We invest in people as much as in companies — relationships are our longest-held asset.",
+    title: "People-Centered Impact",
+    body: "Every initiative is designed to improve livelihoods, create opportunities, and support entrepreneurship within Bauchi State.",
     accent: "#2ECDA7",
   },
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+        <path d="M12 3v18" />
+        <path d="M5 8h14" />
+        <path d="M5 16h14" />
       </svg>
     ),
-    title: "Innovative Thinking",
-    body: "We challenge conventional asset allocation models and embrace emerging asset classes, technologies, and markets before they become consensus.",
+    title: "Strategic Investment Promotion",
+    body: "We actively promote and facilitate investment opportunities by providing reliable, up-to-date information and one-stop services for investors.",
     accent: "#F7A23B",
   },
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+        <path d="M3 3h18v18H3z" />
+        <path d="M7 12h10" />
+        <path d="M12 7v10" />
       </svg>
     ),
-    title: "African Growth Story",
-    body: "We are committed to channelling capital into Africa's most transformative sectors — backing the continent's next wave of institutional wealth creation.",
+    title: "Professional Service Delivery",
+    body: "We provide consultancy, property development, and portfolio management services with a commitment to excellence and efficiency.",
     accent: "#C084FC",
   },
 ];
 
 const team: TeamMember[] = [
   {
-    name: "Adebayo Okonkwo",
-    role: "Founder & CEO",
-    bio: "20 years across Goldman Sachs, Stanbic IBTC, and the IFC. Led over $1.2B in cross-border transactions.",
+    name: "Idris Daniel Danladi ",
+    role: "Assistant Manager Corporate Services ",
+    bio: "Idris Danladi is the Assistant Manager, Corporate Services at Bauchi Investment Corporation Limited (BIC), with experience in corporate communications, administration, stakeholder engagement, and digital media management. He supports BIC’s operations and public image through strategic communication and organizational coordination. He is passionate about investment promotion, business development, and corporate innovation.",
     accent: "#C8F135",
   },
   {
@@ -168,12 +190,21 @@ const team: TeamMember[] = [
 ];
 
 const milestones: Milestone[] = [
-  { year: "2009", title: "Founded in Lagos", body: "BIC established with a mandate to provide institutional-grade investment access to African HNWIs." },
-  { year: "2012", title: "London Office Opens", body: "Expanded to Canary Wharf to serve the diaspora investment market and access European LP capital." },
-  { year: "2015", title: "$500M AUM Milestone", body: "Crossed half a billion in assets under management, launching the flagship BIC Alpha Fund." },
-  { year: "2018", title: "Dubai Office & Gulf Expansion", body: "Established a DIFC presence to tap Gulf sovereign and family office capital flowing into Africa." },
-  { year: "2021", title: "BIC Venture Select Launch", body: "Launched Africa's first institutional VC fund of funds, anchoring 12 top-tier funds in year one." },
-  { year: "2024", title: "$4.2B AUM", body: "Reached $4.2 billion under management across six asset classes and three continents." },
+  {
+    year: "1977",
+    title: "Establishment of BIC",
+    body: "Bauchi Investment Corporation Limited (BIC) was established in June 1977 as a development finance institution created to stimulate economic growth and development through trade, commerce, and industrialization in Bauchi State."
+  },
+  {
+    year: "1986",
+    title: "First Capital Increase",
+    body: "The Corporation’s initial paid-up share capital of N3M was increased to N10M in February 1986 to strengthen its operational capacity and expand its activities."
+  },
+  {
+    year: "2006",
+    title: "Major Expansion & Rebranding",
+    body: "BIC’s share capital was raised to N500M in 2006 to widen its scope and scale of operations. In the same year, the company was renamed from Bauchi State Investment and Property Development Company Ltd (BSIPDC) to Bauchi Investment Corporation (BIC)."
+  }
 ];
 
 // ── Section components ──────────────────────────────────────────────────────
@@ -965,8 +996,13 @@ export default function AboutPage() {
               <em>purpose.</em>
             </h1>
             <p className="hero-desc">
-              BIC Investment Corporation has been building wealth for individuals, families,
-              and institutions since 2009 — with an unwavering focus on Africa and the emerging world.
+              Bauchi Investment Corporation Limited (BIC) was established in June 1977 as a development finance institution to provide avenue for stimulating economic growth and development via trade, commerce and industrialization in the state. 
+
+              BIC commenced operation with an initial paid up share capital of N3M which was raised to N10M in February 1986 and N500M in 2006 to enable it increase its size and widen the scope of its activities. It is wholly owned by the Bauchi State Government.
+            </p>
+
+            <p className="hero-desc">
+              The company was formerly known as Bauchi State Investment and Property Development Company Ltd (BSIPDC). The name was changed to Bauchi Investment Corporation (BIC) in 2006.
             </p>
             <div className="hero-ctas">
               <Link href="/contact" className="btn-primary">
@@ -1000,19 +1036,22 @@ export default function AboutPage() {
           </div>
           <div className="mission-section">
             <div className="mission-text">
-              <h2>
+               <h2>
                 Closing the gap between<br />
-                <em>ambition and capital.</em>
+                <em>ambition and development.</em>
               </h2>
+
               <p>
-                For too long, institutional-grade investment infrastructure was the exclusive preserve of
-                Western financial centres. BIC was built to change that — to bring the same rigour,
-                access, and returns architecture to African wealth builders.
+                For decades, access to structured investment and development finance has been a key driver
+                of economic growth. BIC was established to bridge that gap in Bauchi State — supporting
+                trade, commerce, industrialization, and sustainable economic development.
               </p>
+
               <p>
-                We are not a broker. We are not a bank. We are a long-term partner — one that
-                structures capital with discipline, allocates it with conviction, and reports on
-                it with complete transparency.
+                We are not a commercial bank. We are not a private broker. We are a development finance
+                institution and strategic partner — facilitating investment, managing state assets, and
+                providing services that strengthen the economic foundation of Bauchi State with transparency
+                and professionalism.
               </p>
             </div>
             <div className="mission-visual">
@@ -1024,7 +1063,7 @@ export default function AboutPage() {
               <div className="mission-dot" style={{ background: "#5B8EFF", top: "12%", right: "12%", width: "6px", height: "6px" }} />
               <div className="mission-dot" style={{ background: "#2ECDA7", bottom: "12%", left: "12%", width: "6px", height: "6px" }} />
               <div className="mission-centre">
-                <span className="mission-centre-val">15+</span>
+                <span className="mission-centre-val">49+</span>
                 <span className="mission-centre-lbl">Years</span>
               </div>
             </div>
@@ -1081,7 +1120,7 @@ export default function AboutPage() {
           <div className="section-header">
             <div className="section-eyebrow">Our history</div>
             <h2 className="section-title">
-              15 years of<br /><em>building something real.</em>
+              49 years of<br /><em>building something real.</em>
             </h2>
             <hr className="section-rule" />
           </div>
