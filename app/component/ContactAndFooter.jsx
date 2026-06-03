@@ -22,32 +22,15 @@ function useInView(threshold = 0.1) {
 // ── Contact offices data ────────────────────────────────────────────────────
 const offices = [
   {
-    city: "Abuja",
+    city: "Bauchi",
     country: "Nigeria",
-    address: "Plot 1234, Adeola Odeku Street,\nVictoria Island, Lagos",
-    phone: "+234 1 463 0000",
-    email: "lagos@biccorp.com",
+    address: "37, Abdulkadir Ahmed Road, P.M.B 0162,\n Bauchi, Bauchi State, Nigeria",
+    phone: "+234 7041614459",
+    email: "bauchiinvesmentcorp@gmail.com",
     accent: "#C8F135",
     badge: "HQ",
-  },
-  {
-    city: "London",
-    country: "United Kingdom",
-    address: "1 Canada Square, Canary Wharf,\nLondon E14 5AB",
-    phone: "+44 20 7946 0000",
-    email: "london@biccorp.com",
-    accent: "#5B8EFF",
-    badge: null,
-  },
-  {
-    city: "Dubai",
-    country: "UAE",
-    address: "Gate Building, Level 15,\nDIFC, Dubai",
-    phone: "+971 4 000 0000",
-    email: "dubai@biccorp.com",
-    accent: "#2ECDA7",
-    badge: null,
-  },
+  }
+  
 ];
 
 // ── Inquiry types ───────────────────────────────────────────────────────────
@@ -227,11 +210,11 @@ function ContactSection() {
           ) : (
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-grid-2">
-                <Field label="Full Name" name="name" value={form.name} onChange={handleChange} placeholder="John Mensah" required />
+                <Field label="Full Name" name="name" value={form.name} onChange={handleChange} placeholder="Your Name" required />
                 <Field label="Email Address" type="email" name="email" value={form.email} onChange={handleChange} placeholder="john@company.com" required />
               </div>
               <div className="form-grid-2">
-                <Field label="Company / Organisation" name="company" value={form.company} onChange={handleChange} placeholder="Acme Holdings" />
+                <Field label="Company / Organisation" name="company" value={form.company} onChange={handleChange} placeholder="Your Company" />
                 <Field label="Phone Number" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+234 800 000 0000" />
               </div>
 
@@ -298,8 +281,8 @@ function ContactSection() {
           {/* Direct contact */}
           <div className="sidebar-block">
             <div className="sidebar-label">Direct Contact</div>
-            <a href="mailto:invest@biccorp.com" className="sidebar-email">
-              invest@biccorp.com
+            <a href="mailto:invest@bic.com" className="sidebar-email">
+              invest@bic.com
             </a>
             <div className="sidebar-divider" />
             <div className="sidebar-stat-row">
@@ -308,8 +291,8 @@ function ContactSection() {
                 <span className="sidebar-stat-lbl">Response time</span>
               </div>
               <div className="sidebar-stat">
-                <span className="sidebar-stat-val" style={{ color: "#5B8EFF" }}>3</span>
-                <span className="sidebar-stat-lbl">Global offices</span>
+                <span className="sidebar-stat-val" style={{ color: "#5B8EFF" }}>1</span>
+                <span className="sidebar-stat-lbl">Local offices</span>
               </div>
               <div className="sidebar-stat">
                 <span className="sidebar-stat-val" style={{ color: "#2ECDA7" }}>15+</span>
@@ -394,7 +377,7 @@ function Footer() {
             BIC<span className="footer-logo-dot" />
           </div>
           <p className="footer-tagline">
-            Building institutional-grade investment platforms for the next generation of African and global wealth.
+            Catalyzing Investment, Powering Prosperity 
           </p>
           <div className="footer-socials">
             {socials.map((s) => (

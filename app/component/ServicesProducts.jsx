@@ -5,151 +5,189 @@ import { useEffect, useRef, useState } from "react";
 const services = [
   {
     id: "01",
-    title: "Wealth Management",
-    category: "Advisory",
+    title: "Investment Promotion",
+    category: "Economic Development",
     description:
-      "Bespoke portfolio strategies crafted for high-net-worth individuals and family offices. We align every investment decision with your long-term financial legacy.",
-    stats: { value: "$4.2B", label: "AUM" },
+      "We promote viable investment opportunities across key sectors of Bauchi State by creating awareness of business potentials and connecting investors with high-growth opportunities.",
+    stats: { value: "FDI", label: "Attraction" },
     accent: "#C8F135",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-        <path d="M12 6v6l4 2"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M3 17l6-6 4 4 8-8" />
+        <path d="M15 7h6v6" />
       </svg>
     ),
+    features: [
+      "Investment awareness campaigns",
+      "Digital marketing initiatives",
+      "Radio & television programs",
+      "Workshops and investor seminars"
+    ],
   },
+
   {
     id: "02",
-    title: "Private Equity",
-    category: "Direct Investment",
+    title: "Property Development",
+    category: "Infrastructure & Real Estate",
     description:
-      "We identify, acquire, and scale high-growth private companies across emerging markets and established sectors — delivering above-market returns.",
-    stats: { value: "23%", label: "Avg. IRR" },
+      "We co-invest in critical infrastructure projects including housing developments, commercial facilities, and rural power initiatives that stimulate economic activity and community development.",
+    stats: { value: "PPP", label: "Projects" },
     accent: "#5B8EFF",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
-        <polyline points="16 7 22 7 22 13"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M3 21h18" />
+        <path d="M5 21V7l7-4 7 4v14" />
       </svg>
     ),
+    features: [
+      "Housing developments",
+      "Commercial properties",
+      "Land for investment projects",
+      "Public-Private Partnerships"
+    ],
   },
+
   {
     id: "03",
-    title: "Real Estate Capital",
-    category: "Asset Class",
-    description:
-      "Strategic acquisition and development of commercial and mixed-use assets in prime locations. Risk-adjusted returns backed by tangible value.",
-    stats: { value: "140+", label: "Properties" },
-    accent: "#FF6B6B",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-    ),
-  },
-  {
-    id: "04",
-    title: "Fixed Income",
+    title: "Portfolio Management",
     category: "Capital Markets",
     description:
-      "Structured bond portfolios, sovereign debt instruments, and credit strategies designed to preserve capital while generating consistent yield.",
-    stats: { value: "8.1%", label: "Avg. Yield" },
+      "Through our subsidiary, Bauchi Investment Corporation Securities Limited, we manage government equity portfolios and facilitate investor participation in Nigeria's growing capital market.",
+    stats: { value: "CSCS", label: "Access" },
+    accent: "#FF6B6B",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M4 18l4-6 4 3 8-9" />
+        <path d="M4 20h16" />
+      </svg>
+    ),
+    features: [
+      "Stockbroking services",
+      "CSCS account opening",
+      "E-dividend activation",
+      "Share certificate dematerialization"
+    ],
+  },
+
+  {
+    id: "04",
+    title: "Consultancy Services",
+    category: "Investment Advisory",
+    description:
+      "We provide technical and commercial feasibility studies that help investors assess opportunities, structure investments, and make informed business decisions.",
+    stats: { value: "IRR", label: "Analysis" },
     accent: "#2ECDA7",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23"/>
-        <path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 8v4l3 2" />
       </svg>
     ),
-  },
-  {
-    id: "05",
-    title: "Venture & Growth",
-    category: "Early Stage",
-    description:
-      "We back visionary founders disrupting industries across fintech, healthtech, and climate. From Series A to IPO, we go the distance.",
-    stats: { value: "67", label: "Portfolio Co." },
-    accent: "#F7A23B",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-      </svg>
-    ),
-  },
-  {
-    id: "06",
-    title: "Risk & Compliance",
-    category: "Governance",
-    description:
-      "Comprehensive risk frameworks, regulatory advisory, and compliance infrastructure for institutions navigating complex financial landscapes.",
-    stats: { value: "100%", label: "Compliance" },
-    accent: "#C084FC",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      </svg>
-    ),
+    features: [
+      "Feasibility studies",
+      "ROI assessments",
+      "Net Present Value (NPV) analysis",
+      "Risk and profitability evaluation"
+    ],
   },
 ];
 
 const products = [
   {
-    id: "P1",
-    name: "BIC Alpha Fund",
-    type: "Hedge Fund",
+    id: "O1",
+    name: "Agriculture & Agro-Processing",
+    type: "Priority Sector",
     description:
-      "A multi-strategy absolute return fund combining long/short equity, macro, and quantitative models. Designed for sophisticated investors seeking uncorrelated returns.",
-    minInvestment: "$500K",
-    horizon: "3–5 Years",
-    risk: "Moderate–High",
-    badge: "Flagship",
-    badgeColor: "#C8F135",
-    features: ["Quarterly liquidity", "Full transparency reporting", "Dedicated relationship manager"],
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 20h20M6 20V10M10 20V4M14 20v-8M18 20v-6"/>
-      </svg>
-    ),
-  },
-  {
-    id: "P2",
-    name: "BIC Horizon REIT",
-    type: "Real Estate Trust",
-    description:
-      "A diversified real estate investment trust with exposure to premium commercial, retail, and logistics assets across West Africa and the Gulf.",
-    minInvestment: "$100K",
-    horizon: "5–7 Years",
+      "Leverage Bauchi State's vast arable land, livestock resources, and growing agricultural value chains through investments in farming, food processing, storage, and export-oriented production.",
+    minInvestment: "Open Access",
+    horizon: "Long-Term Growth",
     risk: "Moderate",
-    badge: "Income",
-    badgeColor: "#2ECDA7",
-    features: ["Semi-annual distributions", "NAV-based valuation", "ESG-screened portfolio"],
+    badge: "Priority",
+    badgeColor: "#C8F135",
+    features: [
+      "Large agricultural land bank",
+      "Livestock and dairy opportunities",
+      "Agro-processing potential"
+    ],
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="7" width="20" height="14" rx="2"/>
-        <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
-        <line x1="12" y1="12" x2="12" y2="16"/>
-        <line x1="10" y1="14" x2="14" y2="14"/>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M12 22V12" />
+        <path d="M7 7c0 3 2 5 5 5" />
+        <path d="M17 7c0 3-2 5-5 5" />
+        <path d="M12 12c0-5 2-8 6-10" />
       </svg>
     ),
   },
+
+  // {
+  //   id: "O2",
+  //   name: "Solid Minerals Development",
+  //   type: "Natural Resources",
+  //   description:
+  //     "Unlock the value of Bauchi State's abundant mineral deposits including limestone, gypsum, kaolin, and iron ore through responsible extraction and industrial processing projects.",
+  //   minInvestment: "Strategic Projects",
+  //   horizon: "5–10 Years",
+  //   risk: "Moderate",
+  //   badge: "High Potential",
+  //   badgeColor: "#FF6B6B",
+  //   features: [
+  //     "Untapped mineral reserves",
+  //     "Industrial processing opportunities",
+  //     "Export market potential"
+  //   ],
+  //   icon: (
+  //     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+  //       <path d="M12 2l8 6v8l-8 6-8-6V8z" />
+  //       <path d="M12 2v20" />
+  //     </svg>
+  //   ),
+  // },
+
   {
-    id: "P3",
-    name: "BIC Venture Select",
-    type: "VC Fund of Funds",
+    id: "O3",
+    name: "Tourism & Hospitality",
+    type: "Destination Investment",
     description:
-      "Access to a curated basket of top-tier venture capital funds and direct co-investments. Institutional-grade exposure to the innovation economy.",
-    minInvestment: "$250K",
-    horizon: "7–10 Years",
-    risk: "High",
+      "Invest in one of Nigeria's most promising tourism destinations, featuring Yankari Game Reserve, natural attractions, hospitality developments, and eco-tourism infrastructure.",
+    minInvestment: "PPP Ready",
+    horizon: "Long-Term Value",
+    risk: "Moderate",
     badge: "Growth",
     badgeColor: "#5B8EFF",
-    features: ["Annual co-investment rights", "LP advisory committee access", "Bi-annual portfolio reviews"],
+    features: [
+      "Yankari Game Reserve",
+      "Hospitality development",
+      "Eco-tourism opportunities"
+    ],
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="2" y1="12" x2="22" y2="12"/>
-        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M3 20h18" />
+        <path d="M7 20v-8l5-5 5 5v8" />
+        <path d="M12 7V3" />
+      </svg>
+    ),
+  },
+
+  {
+    id: "O4",
+    name: "Infrastructure & Real Estate",
+    type: "Development Projects",
+    description:
+      "Partner with Bauchi State on strategic infrastructure, housing, commercial real estate, and urban development projects that support economic expansion and modernization.",
+    minInvestment: "PPP Opportunities",
+    horizon: "10+ Years",
+    risk: "Moderate",
+    badge: "Strategic",
+    badgeColor: "#2ECDA7",
+    features: [
+      "Urban development projects",
+      "Commercial real estate",
+      "Infrastructure partnerships"
+    ],
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <rect x="4" y="4" width="16" height="16" />
+        <path d="M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1" />
       </svg>
     ),
   },
@@ -715,14 +753,16 @@ export default function ServicesProducts() {
         >
           <div className="section-header">
             <div className="section-eyebrow">What we do</div>
-            <h2 className="section-title">
-              Institutional-grade<br />
-              <em>services for every</em><br />
-              investor profile.
+           <h2 className="section-title">
+              Driving Growth <em>Through</em><br />
+              Strategic Investment<br />
+              and Development.
             </h2>
+
             <p className="section-subtitle">
-              From private wealth to institutional mandates, our advisory and investment
-              services are built on decades of market experience.
+              From investment promotion and property development to portfolio management
+              and investor facilitation, we provide the expertise and support needed to
+              unlock opportunities across Bauchi State.
             </p>
             <hr className="header-rule" />
           </div>
@@ -743,13 +783,14 @@ export default function ServicesProducts() {
           <div className="section-header">
             <div className="section-eyebrow">Investment vehicles</div>
             <h2 className="section-title">
-              Products engineered<br />
-              <em>for performance</em><br />
-              and resilience.
+              Invest Where Opportunity <em>Meets</em> Potential<br />
+              Across Bauchi State.
             </h2>
+
             <p className="section-subtitle">
-              Each product is rigorously structured, independently audited, and designed to
-              deliver risk-adjusted returns across market cycles.
+              Explore high-impact sectors and development initiatives designed to attract
+              investment, create jobs, and accelerate sustainable economic growth throughout
+              Bauchi State.
             </p>
             <hr className="header-rule" />
           </div>

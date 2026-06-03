@@ -8,56 +8,56 @@ import Link from "next/link";
 const slides = [
   {
     id: 1,
-    eyebrow: "Introducing the future",
-    headline: "Build products\npeople love.",
+    eyebrow: "Bauchi State Investment Corporation",
+    headline: "Unlock investment\nopportunities in Bauchi.",
     subheading:
-      "A powerful platform that gives your team everything they need to design, ship, and scale — without the chaos.",
-    cta: { primary: "Start for free", secondary: "See how it works" },
+      "A resource-rich state in Nigeria offering strategic opportunities in agriculture, solid minerals, infrastructure, and energy — supported by government-backed stability.",
+    cta: { primary: "Explore Opportunities", secondary: "Download Profile" },
     accent: "#C8F135",
     bg: "#0A0A0A",
     textColor: "#FFFFFF",
-    tag: "Platform",
-    image: "/images/img_3.jpg"
+    tag: "Overview",
+    image: "/images/bauchiCityGate.jpg"
   },
   {
     id: 2,
-    eyebrow: "Blazing fast performance",
-    headline: "Speed is a\nfeature too.",
+    eyebrow: "Agriculture & Natural Wealth",
+    headline: "Powering growth\nthrough agriculture.",
     subheading:
-      "Sub-100ms response times. Global edge delivery. Your users will never wait again — and they'll notice.",
-    cta: { primary: "Explore features", secondary: "View benchmarks" },
+      "Bauchi State offers vast arable land and livestock potential for rice, maize, dairy, and agro-processing industries with strong local and export demand.",
+    cta: { primary: "View Sectors", secondary: "Agri Map" },
     accent: "#5B8EFF",
     bg: "#04101F",
     textColor: "#FFFFFF",
-    tag: "Performance",
-    image: "/images/img_1.jpg"
+    tag: "Agriculture",
+    image: "/images/agric.jpg"
   },
   {
     id: 3,
-    eyebrow: "Designed for teams",
-    headline: "Collaborate\nwithout limits.",
+    eyebrow: "Solid Minerals & Industry",
+    headline: "Rich resources,\nreal opportunities.",
     subheading:
-      "Real-time multiplayer editing, version history, and role-based access — built in from day one.",
-    cta: { primary: "Invite your team", secondary: "See plans" },
-    accent: "#FF6B6B",
-    bg: "#120808",
+      "From limestone and gypsum to kaolin and iron ore, Bauchi presents high-value mining and industrial development opportunities for long-term investors.",
+    cta: { primary: "Explore Mining", secondary: "Investment Guide" },
+    accent: "#FFB020",
+    bg: "#120D05",
     textColor: "#FFFFFF",
-    tag: "Collaboration",
-    image: "/images/img_2.jpg"
+    tag: "Mining",
+    image: "/images/ore.jpg"
   },
   {
     id: 4,
-    eyebrow: "Enterprise ready",
-    headline: "Secure your\nfuture.",
+    eyebrow: "Tourism & Infrastructure",
+    headline: "Where nature\nmeets investment.",
     subheading:
-      "SOC 2 Type II, SSO, audit logs, and custom data residency. Security that scales with your compliance needs.",
-    cta: { primary: "Talk to sales", secondary: "Read docs" },
+      "Home to Yankari Game Reserve and expanding infrastructure projects, Bauchi is positioning itself as a top destination for tourism and development investment.",
+    cta: { primary: "Start Investing", secondary: "Contact Agency" },
     accent: "#2ECDA7",
-    bg: "#030F0B",
+    bg: "#03110D",
     textColor: "#FFFFFF",
-    tag: "Security",
-    image: "/images/img_4.jpg"
-  },
+    tag: "Tourism",
+    image: "/images/wildlife.jpg"
+  }
 ];
 
 const SLIDE_DURATION = 5000;
